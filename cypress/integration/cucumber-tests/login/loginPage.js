@@ -9,7 +9,9 @@ class LoginPage{
         cy.visit(URL)
     }
     static fillUsername(name) {
-        cy.get(USERNAME_INPUT).type(name)
+        cy.fixture('testdata').then(testdata => {
+            cy.get(USERNAME_INPUT).type(testdata.username)
+        })
     }
     static fillPassword(password) {
         cy.get(PASSWORD_INPUT).type(password) 
